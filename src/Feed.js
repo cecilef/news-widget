@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Articles } from "./Articles";
+import './Feed.css';
 
 export class Feed extends Component {
 
@@ -21,6 +22,10 @@ export class Feed extends Component {
       .then(res => res.json());
   }
 
+  filterBySource(sourceName) {
+
+  }
+
   componentDidMount() {
     this.getHeadlineArticles().then(
       result => {
@@ -39,7 +44,7 @@ export class Feed extends Component {
   render() {
     if (this.state.dataLoaded) {
       return (
-        <div>
+        <div className="main-content">
           <h2 className="news-feed__header">News</h2>
           <Articles articles={this.state.articles}/>
         </div>

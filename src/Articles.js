@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Article } from "./Article";
+import './Articles.css';
 
 export class Articles extends Component {
 
@@ -19,7 +20,7 @@ export class Articles extends Component {
     }
     return (
       <div className="new-feed__articles">
-        <ul>
+        <ul className="articles-list">
         {listOfArticles}
         </ul>
       </div>

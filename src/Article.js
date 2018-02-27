@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Article.css';
 
 export class Article extends Component {
 
@@ -25,8 +26,8 @@ export class Article extends Component {
       <li>
         <h3>{this.state.article.title}</h3>
         <p className="article__body">
-          <span>{this.formatDate(this.state.article.publishedAt)}</span>
-          <span>{this.state.article.source.name}</span>
+          <span className="publish-date">{this.formatDate(this.state.article.publishedAt)}</span>
+          <div className="source-name"><span className="source-name__inner">{this.state.article.source.name}</span></div>
         </p>
       </li>
     )
