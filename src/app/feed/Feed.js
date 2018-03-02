@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Articles } from "../article-list/Articles";
 import './Feed.css';
+import { Filter } from "../shared/filter/Filter";
 
 export class Feed extends Component {
 
@@ -10,7 +11,9 @@ export class Feed extends Component {
     super(props);
     this.state = {
       dataLoaded: false,
-      articles: undefined
+      articles: undefined,
+      page: 0,
+      source: ''
     };
   }
 
@@ -46,14 +49,15 @@ export class Feed extends Component {
       return (
         <div className="main-content">
           <h2 className="news-feed__header">News</h2>
-          <Articles articles={this.state.articles}/>
+          <Articles articles={this.state.articles} page={this.state.page}/>
+          <Filter />
         </div>
       )
     } else {
       return (
         <div>
           <h2 className="news-feed__header">News</h2>
-          <p>Loading...</p>
+          <div>Loading...</div>
         </div>
       )
     }

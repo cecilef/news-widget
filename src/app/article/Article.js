@@ -25,10 +25,10 @@ export class Article extends Component {
     return (
       <li>
         <h3>{this.state.article.title}</h3>
-        <p className="article__body">
+        <div className="article__body">
           <span className="publish-date">{this.formatDate(this.state.article.publishedAt)}</span>
           <div className="source-name"><span className="source-name__inner">{this.state.article.source.name}</span></div>
-        </p>
+        </div>
       </li>
     )
   }
