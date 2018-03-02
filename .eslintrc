@@ -1,6 +1,7 @@
 {
   "extends": "react-app",
   "rules": {
-    "max-len": [1, { "code": 80 }]
+    "max-len": [1, { "code": 80 }],
+    "quotes": [1, "single"]
   }
 }

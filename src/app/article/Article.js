@@ -23,7 +23,7 @@ export class Article extends Component {
 
   render() {
     return (
-      <li>
+      <li className="article__container">
         <h3>{this.state.article.title}</h3>
         <div className="article__body">
           <span className="publish-date">{this.formatDate(this.state.article.publishedAt)}</span>

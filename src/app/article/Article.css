@@ -1,19 +1,27 @@
-li {
-    border-bottom: solid 1px lightgrey;
+.article__container {
+  border-bottom: solid 1px lightgrey;
+  display: inline-block;
 }
 
 .article__body {
-    display: flex;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
 }
 
 .publish-date, .source-name {
-    flex: 1 1 auto;
-    align-content: space-between;
-    font-size: 12px;
+  flex: 1 1 auto;
+  align-content: space-between;
+  font-size: 12px;
+}
+
+.publish-date {
+  display: block;
 }
 
 .source-name__inner {
-    background: lightgrey;
-    border-radius: 10px;
-    padding: 5px;
+  display: inline-block;
+  background: lightgrey;
+  border-radius: 10px;
+  padding: 5px;
 }

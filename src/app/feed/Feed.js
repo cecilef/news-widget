@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Articles } from "../article-list/Articles";
+import { Articles } from '../article-list/Articles';
 import './Feed.css';
-import { Filter } from "../shared/filter/Filter";
+import { Filter } from '../shared/filter/Filter';
 
 export class Feed extends Component {
 
@@ -13,7 +13,8 @@ export class Feed extends Component {
       dataLoaded: false,
       articles: undefined,
       page: 0,
-      source: ''
+      source: '',
+      sources: []
     };
   }
 
@@ -26,7 +27,21 @@ export class Feed extends Component {
   }
 
   filterBySource(sourceName) {
-
+    debugger;
+  }
+  
+  /**
+   * Parse data to extract array of sources
+   * @param articles
+   * @returns [{id: string, name: string}] array of sources
+   */
+  initSource(articles) {
+    if (!articles || articles.length === 0) return;
+    let sources = [];
+    for (let article of articles) {
+      if (article.source) sources.push(article.source);
+    }
+    return sources;
   }
 
   componentDidMount() {
@@ -36,7 +51,8 @@ export class Feed extends Component {
           this.setState({
             dataLoaded: true,
             nbOfArticles: result.totalResults,
-            articles: result.articles
+            articles: result.articles,
+            sources: this.initSource(result.articles)
           });
         }
       },
@@ -50,7 +66,7 @@ export class Feed extends Component {
         <div className="main-content">
           <h2 className="news-feed__header">News</h2>
           <Articles articles={this.state.articles} page={this.state.page}/>
-          <Filter />
+          <Filter select={this.filterBySource} sources={this.state.sources}/>
         </div>
       )
     } else {
