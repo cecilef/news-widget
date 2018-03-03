@@ -3,27 +3,14 @@ import { Article } from "../article/Article";
 import './Articles.css';
 
 export class Articles extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      articles: this.props.articles,
-      page: this.props.page,
-      source: this.props.source
-    };
-  }
   
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      source: nextProps.source
-    });
-  }
-
+  // TODO use props.page when implementing show more
+  
   render() {
     let listOfArticles = [];
-    if (this.state.articles) {
-      listOfArticles = this.state.articles.map((article, index) => {
-        if (article.source.name.includes(this.state.source)) {
+    if (this.props.articles) {
+      listOfArticles = this.props.articles.map((article, index) => {
+        if (article.source.name.includes(this.props.source)) {
           return <Article article={article} key={index}/>
         }
       });
@@ -31,7 +18,7 @@ export class Articles extends Component {
     return (
       <div className="new-feed__articles">
         <ul className="articles-list">
-        {listOfArticles}
+          {listOfArticles}
         </ul>
       </div>
     );

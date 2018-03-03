@@ -27,7 +27,6 @@ export class Feed extends Component {
   }
 
   filterBySource(sourceName) {
-    debugger;
     this.setState({
       source: sourceName
     });
