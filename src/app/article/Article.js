@@ -24,7 +24,7 @@ export class Article extends Component {
   render() {
     return (
       <li className="article__container">
-        <h3>{this.state.article.title}</h3>
+        <h4>{this.state.article.title}</h4>
         <div className="article__body">
           <span className="publish-date">{this.formatDate(this.state.article.publishedAt)}</span>
           <div className="source-name"><span className="source-name__inner">{this.state.article.source.name}</span></div>

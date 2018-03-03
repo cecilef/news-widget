@@ -12,7 +12,7 @@ export class Feed extends Component {
     this.state = {
       dataLoaded: false,
       articles: undefined,
-      page: 0,
+      page: 1,
       source: '',
       sources: []
     };
@@ -28,6 +28,9 @@ export class Feed extends Component {
 
   filterBySource(sourceName) {
     debugger;
+    this.setState({
+      source: sourceName
+    });
   }
   
   /**
@@ -39,7 +42,8 @@ export class Feed extends Component {
     if (!articles || articles.length === 0) return;
     let sources = [];
     for (let article of articles) {
-      if (article.source) sources.push(article.source);
+      let sourceFound = sources.filter(source => {return source.id === article.source.id});
+      if (article.source && sourceFound.length === 0) sources.push(article.source);
     }
     return sources;
   }
@@ -64,9 +68,9 @@ export class Feed extends Component {
     if (this.state.dataLoaded) {
       return (
         <div className="main-content">
+          <Filter select={this.filterBySource.bind(this)} sources={this.state.sources}/>
           <h2 className="news-feed__header">News</h2>
-          <Articles articles={this.state.articles} page={this.state.page}/>
-          <Filter select={this.filterBySource} sources={this.state.sources}/>
+          <Articles articles={this.state.articles} page={this.state.page} source={this.state.source}/>
         </div>
       )
     } else {

@@ -1,6 +1,9 @@
 .article__container {
   border-bottom: solid 1px lightgrey;
-  display: inline-block;
+}
+
+.article__container:last-child {
+  border-bottom: 0;
 }
 
 .article__body {
@@ -10,7 +13,7 @@
 }
 
 .publish-date, .source-name {
-  flex: 1 1 auto;
+  flex: 1;
   align-content: space-between;
   font-size: 12px;
 }

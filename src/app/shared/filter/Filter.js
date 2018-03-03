@@ -21,7 +21,7 @@ export class Filter extends Component {
       <div className="dropdown">
         <DropdownButton
           bsStyle='info'
-          title='info'
+          title='Filter by source'
           id={`dropdown-basic-info`}
         >
           {menuItems}
