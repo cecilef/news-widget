@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Feed} from "./Feed";
+import {Feed} from "./feed/Feed";
 
 class App extends Component {
   render() {

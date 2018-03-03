@@ -1,0 +1,11 @@
+.news-feed__header {
+  text-align: left;
+  color: hotpink;
+  border-bottom: 3px solid hotpink;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.dropdown {
+  float: right;
+}
